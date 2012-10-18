@@ -1,0 +1,40 @@
+<div id="purchase_box">
+<li>
+  <%= link_to gravatar_for(purchase.user), purchase.user %>
+  <%= link_to purchase.user.name, purchase.user %>
+  <span class="content"><%= purchase.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(purchase.created_at) %> ago.
+  </span>
+  <% if current_user?(@user) %>
+    <td>
+      <%= link_to "delete", purchase, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => purchase.content %>
+    </td>
+  <% end %>
+  <br><br><br>
+    <% purchase.pcomments.each do |pcomment| %>
+   
+       <div class="box">
+         
+          <%= link_to pcomment.user.name, pcomment.user %>
+         
+         <%= word_wrap(pcomment.body, :line_width => 8) %>
+       </div>
+
+    <% end %>
+  
+
+  <%= form_for([purchase, purchase.pcomments.build]) do |f| %>
+  
+    <div class="field">
+    
+      <%= f.text_field :body, placeholder: "Make an offer ", :maxlength=>"254" %>    
+    </div>
+
+    
+  <% end %>
+
+</li>
+</div>
