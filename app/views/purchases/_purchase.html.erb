@@ -1,6 +1,8 @@
 <div id="purchase_box">
 <li>
+  <div id= "gravatar">
   <%= link_to gravatar_for(purchase.user), purchase.user %>
+</div>
   <%= link_to purchase.user.name, purchase.user %>
   <span class="content"><%= purchase.content %></span>
   <span class="timestamp">
@@ -16,7 +18,7 @@
   <br><br><br>
     <% purchase.pcomments.each do |pcomment| %>
    
-       <div class="box">
+       <div id="box">
          
           <%= link_to pcomment.user.name, pcomment.user %>
          

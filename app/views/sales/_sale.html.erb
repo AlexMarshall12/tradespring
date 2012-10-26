@@ -1,6 +1,7 @@
 <div id="sale_box">
-<li>
+<li><div id ="gravatar">
   <%= link_to gravatar_for(sale.user), sale.user %>
+  </div>
   <%= link_to sale.user.name, sale.user %>
   <span class="content"><%= sale.content %></span>
   <span class="timestamp">

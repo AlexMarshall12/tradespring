@@ -11,27 +11,6 @@
  *= require_self
  *= require_tree .
  */
-#sales {
-    float: left;
-    background: #FFFFFF;
-    width: 465px;
-    border-left:thick-double;
-}
 
-#purchases {
-    background: #FFFFFF;
-    width: 465px;
-    float: left;
-    border-right:thick double;
-}
 
-#purchase_box {
-	background: #87CEFA;
-	border-radius: 15px;
-	
-}
-​
-#sale_box {
-	background: #87CEFA;
-	border-radius:15px;
-}
+
