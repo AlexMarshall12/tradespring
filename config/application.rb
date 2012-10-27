@@ -15,9 +15,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-if Rails.env == "production"
-  config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-35785008-1")
-end
 
 module Tradespring
   class Application < Rails::Application
@@ -51,6 +48,11 @@ module Tradespring
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
+
+    if Rails.env == "production"
+      config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-35785008-1")
+    end
+
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
