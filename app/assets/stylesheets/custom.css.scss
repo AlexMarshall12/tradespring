@@ -199,10 +199,7 @@ aside {
   color: $grayLight;
   margin-bottom:10px;
 }
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+
 aside {
   textarea {
     height: 20px;
@@ -228,8 +225,9 @@ aside {
   margin-left:7px;
 }
 
-#gravatar {
+.gravatar {
   margin-left:5px;
+
 }
 
 #sales {
@@ -245,4 +243,8 @@ aside {
     width: 465px;
     float: left;
     border-right:thick solid;
+}
+
+.file_input {
+  border: 0px solid;
 }

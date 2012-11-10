@@ -1,7 +1,12 @@
 <div id="sale_box">
-<li><div id ="gravatar">
-  <%= link_to gravatar_for(sale.user), sale.user %>
-  </div>
+<li>
+  <div class="gravatar">
+  <% if sale.photo.exists? then %>
+    <%= image_tag sale.photo.url(:small) %>
+    <% else %>
+    <%= image_tag("no_pic.png", :alt => "no picture") %>
+  <% end %>
+ </div>
   <%= link_to sale.user.name, sale.user %>
   <span class="content"><%= sale.content %></span>
   <span class="timestamp">
@@ -14,7 +19,7 @@
                                        :title => sale.content %>
     </td>
   <% end %>
-  <br><br><br>
+  <br><br><br><br><br><br><br>
   
     <% sale.scomments.each do |scomment| %>
    

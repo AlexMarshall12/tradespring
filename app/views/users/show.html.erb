@@ -9,6 +9,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_field :content, placeholder: "Describe something you are interested in buying.", :maxlength=>"254" %>
+    <%= f.file_field :photo, :class => 'file_input' %>
     <p1> Note: There is a 254 character limit. Be sure to include useful information such as product specifications, how much you are willing to pay, and shipping info (where you live, if you want to pick it up locally, ect.). Further detail is best left to email.</p1>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
@@ -29,6 +30,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_field :content, placeholder: "Describe something you are interested in selling.", :maxlength=>"254" %>
+    <%= f.file_field :photo, :class => 'file_input' %>
     <p1> Note: There is a 254 character limit. Be sure to include useful information such as product specifications, price, payment methods accepted, and shipping info (where you live, if you are willing to ship it, ect.). Further detail is best left to email. </p1>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>

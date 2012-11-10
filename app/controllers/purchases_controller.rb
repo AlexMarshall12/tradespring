@@ -23,6 +23,17 @@ class PurchasesController < ApplicationController
     end
   end
 
+  def update
+    @purchase = Purchase.find(params[:id])
+    if @purchase.update_attributes(params[:purchase])
+      flash[:success] = "Profile updated"
+      
+      redirect_to 'users#show'
+    else
+      redirect_to :back
+    end
+  end
+
   def new
     @user= User.find(params[:id])
     @purchase = Purchase.new(params[:purchase])

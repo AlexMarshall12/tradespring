@@ -1,9 +1,15 @@
 <div id="purchase_box">
 <li>
-  <div id= "gravatar">
-  <%= link_to gravatar_for(purchase.user), purchase.user %>
-</div>
+  
+<div class="gravatar">
+  <% if purchase.photo.exists? then %>
+    <%= image_tag purchase.photo.url(:small) %>
+    <% else %>
+    <%= image_tag("no_pic.png", :alt => "no picture") %>
+  <% end %>
+  </div>
   <%= link_to purchase.user.name, purchase.user %>
+
   <span class="content"><%= purchase.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(purchase.created_at) %> ago.
@@ -15,12 +21,13 @@
                                        :title => purchase.content %>
     </td>
   <% end %>
-  <br><br><br>
+
+  <br><br><br><br><br><br><br>
     <% purchase.pcomments.each do |pcomment| %>
    
        <div id="box">
          
-          <%= link_to pcomment.user.name, pcomment.user %>
+         <%= link_to pcomment.user.name, pcomment.user %>
          
          <%= word_wrap(pcomment.body, :line_width => 8) %>
        </div>
